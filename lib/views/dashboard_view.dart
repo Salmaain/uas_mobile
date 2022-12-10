@@ -9,7 +9,7 @@ class Dashboardview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       body: TabBarView(
         controller: controller.tabController,
         physics: NeverScrollableScrollPhysics(),
@@ -35,4 +35,3 @@ class Dashboardview extends StatelessWidget {
     );
   }
 }
-

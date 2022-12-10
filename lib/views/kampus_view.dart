@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class KampusView extends StatelessWidget {
   const KampusView({super.key});
@@ -6,7 +6,9 @@ class KampusView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text("Kampus View"),),
+      child: Center(
+        child: Text("Kampus View"),
+      ),
     );
   }
 }
