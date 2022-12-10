@@ -1,10 +1,10 @@
-class UniversityResponseModel{
+class UniversityResponseModel {
   List<UniversityListModel>? data;
 
   UniversityResponseModel({required this.data});
 
   UniversityResponseModel.fromJson(Map<String, dynamic> json) {
-  //  data = json.cast<UniversityListModel>();
+    //  data = json.cast<UniversityListModel>();
   }
 }
 
@@ -13,7 +13,7 @@ class UniversityListModel {
   String? name;
   String? country;
   List<String>? webPages;
-  Null? stateProvince;
+
   List<String>? domains;
 
   UniversityListModel(
@@ -21,7 +21,6 @@ class UniversityListModel {
       this.name,
       this.country,
       this.webPages,
-      this.stateProvince,
       this.domains});
 
   UniversityListModel.fromJson(Map<String, dynamic> json) {
@@ -29,7 +28,7 @@ class UniversityListModel {
     name = json['name'];
     country = json['country'];
     webPages = json['web_pages'].cast<String>();
-    stateProvince = json['state-province'];
+
     domains = json['domains'].cast<String>();
   }
 
@@ -39,7 +38,7 @@ class UniversityListModel {
     data['name'] = this.name;
     data['country'] = this.country;
     data['web_pages'] = this.webPages;
-    data['state-province'] = this.stateProvince;
+
     data['domains'] = this.domains;
     return data;
   }

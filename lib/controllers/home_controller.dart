@@ -38,12 +38,12 @@ class HomeController extends GetxController
   void fetchUniversitas() async {
     var response = await _universityServices!.getSemuaData();
     print(response.toString());
+
     datas = response;
   }
 
   void fetchAllMahasiswa() async {
     var response = await _mahasiswaService!.getSemuaData();
-    print(response.toString());
     listMahasiswa = response;
     isLoading.value = false;
   }

@@ -7,7 +7,7 @@ class MahasiswaService extends GetConnect {
 
   Future<MahasiswaModel> getSemuaData() async {
     var response = await get(getAllIdentiasUrl);
-    print(response.body);
+
     MahasiswaModel model = MahasiswaModel.fromJson(response.body);
     return model;
   }

@@ -32,14 +32,14 @@ class MahasiswaController extends GetxController {
 
   void fetchAllMahasiswa() async {
     var response = await _mahasiswaService!.getSemuaData();
-    print(response.toString());
+
     listMahasiswa = response;
-    isLoading.value = false;
   }
 
   void fetchAll() async {
+    fetchUniversitas();
     fetchAllMahasiswa();
-    // fetchUniversitas();
+
     isLoading.value = false;
   }
 }
