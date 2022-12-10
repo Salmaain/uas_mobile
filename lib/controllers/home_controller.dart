@@ -18,7 +18,7 @@ class HomeController extends GetxController
   final RxInt tabIndex = 0.obs;
   late TabController tabController;
 
-  final List<Widget> pages = [MahasiswaView(), KampusView()];
+  final List<Widget> pages = [KampusView(), KampusView()];
 
   void changeTab(int index) {
     tabIndex.value = index;
@@ -32,7 +32,6 @@ class HomeController extends GetxController
     tabController = TabController(length: pages.length, vsync: this);
     _universityServices = Get.put<UniversityServices>(UniversityServices());
     _mahasiswaService = Get.put<MahasiswaService>(MahasiswaService());
-    fetchAllMahasiswa();
   }
 
   void fetchUniversitas() async {
@@ -49,8 +48,8 @@ class HomeController extends GetxController
   }
 
   void fetchAll() async {
-    fetchAllMahasiswa();
-    // fetchUniversitas();
+    // fetchAllMahasiswa();
+    fetchUniversitas();
     isLoading.value = false;
   }
 }
