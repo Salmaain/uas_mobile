@@ -21,13 +21,14 @@ class MahasiswaController extends GetxController {
 
     _universityServices = Get.put<UniversityServices>(UniversityServices());
     _mahasiswaService = Get.put<MahasiswaService>(MahasiswaService());
-    fetchAllMahasiswa();
+    fetchUniversitas();
   }
 
   void fetchUniversitas() async {
     var response = await _universityServices!.getSemuaData();
     print(response.toString());
     datas = response;
+    isLoading.value = false;
   }
 
   void fetchAllMahasiswa() async {

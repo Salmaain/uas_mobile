@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uas_sister/controllers/mahasiswa_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class KampusView extends StatelessWidget {
   var controller = Get.put<MahasiswaController>(MahasiswaController());
@@ -11,15 +12,23 @@ class KampusView extends StatelessWidget {
         child: Obx(() => controller.isLoading.value == true
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
-                itemCount: controller.listMahasiswa!.data!.length,
+                itemCount: controller.datas!.length,
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
-                      title: Text(controller.listMahasiswa!.data![index].nama!),
+                      title: Text(controller.datas![index].name!),
                       subtitle:
-                          Text(controller.listMahasiswa!.data![index].email!),
-                      trailing:
-                          Text(controller.listMahasiswa!.data![index].phone!),
+                          Text(controller.datas![index].domains![0].toString()),
+                      trailing: TextButton(
+                          onPressed: () async {
+                            var url = Uri.parse(controller
+                                .datas![index].webPages![0]
+                                .toString());
+                            if (!await launchUrl(url)) {
+                              throw 'Could not launch $url';
+                            }
+                          },
+                          child: Text("Open Website")),
                     ),
                   );
                 },
